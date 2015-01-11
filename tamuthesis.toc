@@ -1,0 +1,26 @@
+
+\renewcommand {\cftchapleader } {\cftdotfill {4.5}}
+\contentsline {chapter}{ABSTRACT}{ii}
+\contentsline {chapter}{TABLE OF CONTENTS}{iii}
+\contentsline {chapter}{LIST OF FIGURES}{iv}
+\contentsline {chapter}{LIST OF TABLES}{v}
+\contentsline {chapter}{\numberline {1}\uppercase {Introduction}}{1}
+\vskip +10pt
+\contentsline {section}{\numberline {1.1}Motivation}{1}
+\contentsline {section}{\numberline {1.2}Background}{2}
+\contentsline {section}{\numberline {1.3}Virtualization}{2}
+\contentsline {subsection}{\numberline {1.3.1}CPU Virtualization}{5}
+\contentsline {subsection}{\numberline {1.3.2}Memory Virtualization}{9}
+\contentsline {subsection}{\numberline {1.3.3}I/O Virtualization}{11}
+\contentsline {section}{\numberline {1.4}Non-Volatile Memory}{12}
+\contentsline {subsection}{\numberline {1.4.1}Storage Class Memory}{13}
+\contentsline {subsection}{\numberline {1.4.2}NVDIMM}{15}
+\contentsline {section}{\numberline {1.5}E820 Memory Map}{16}
+\contentsline {chapter}{\numberline {2}\uppercase {Design}}{21}
+\vskip +10pt
+\contentsline {section}{\numberline {2.1}Xen Architecture}{21}
+\contentsline {section}{\numberline {2.2}Xen Memory Model}{22}
+\contentsline {section}{\numberline {2.3}Xen Boot Procedure}{24}
+\contentsline {subsection}{\numberline {2.3.1}Modifications}{25}
+\contentsline {section}{\numberline {2.4}DomU Boot Procedure}{25}
+\contentsline {subsection}{\numberline {2.4.1}Modifications}{25}
