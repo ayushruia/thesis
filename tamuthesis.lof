@@ -8,9 +8,20 @@
 \contentsline {figure}{\numberline {1.6}{\ignorespaces Hypervisor Protection Rings\relax }}{9}
 \contentsline {figure}{\numberline {1.7}{\ignorespaces Virtual Memory\relax }}{10}
 \contentsline {figure}{\numberline {1.8}{\ignorespaces Hypervisor based Memory Layers\relax }}{10}
-\contentsline {figure}{\numberline {1.9}{\ignorespaces SCM based Motherboard Architectures\relax }}{14}
-\contentsline {figure}{\numberline {1.10}{\ignorespaces NVDIMM Model\relax }}{15}
-\contentsline {figure}{\numberline {1.11}{\ignorespaces Intel Hub Architecture\relax }}{17}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces SCM based Motherboard Architectures\relax }}{16}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces NVDIMM Model\relax }}{17}
+\contentsline {figure}{\numberline {1.11}{\ignorespaces Intel Hub Architecture\relax }}{18}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Xen Architecture\relax }}{22}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Xen Architecture\relax }}{25}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Xen Architecture\relax }}{26}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Xen Architecture\relax }}{28}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Xen Architecture\relax }}{31}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Xen Architecture\relax }}{32}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Xen Architecture\relax }}{32}
+\addvspace {10\p@ }
+\vskip -10pt
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Xen Architecture\relax }}{37}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
