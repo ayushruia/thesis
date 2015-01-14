@@ -22,15 +22,14 @@
 \contentsline {section}{\numberline {2.2}Xen Control Interface}{28}
 \contentsline {section}{\numberline {2.3}Xen Memory Model}{29}
 \contentsline {subsection}{\numberline {2.3.1}x86\_64 Memory management}{30}
-\contentsline {subsection}{\numberline {2.3.2}Hypercalls}{33}
-\contentsline {chapter}{\numberline {3}\uppercase {Design and Implementation}}{35}
+\contentsline {subsection}{\numberline {2.3.2}Hypercalls}{31}
+\contentsline {chapter}{\numberline {3}\uppercase {Design and Implementation}}{34}
 \vskip +10pt
-\contentsline {section}{\numberline {3.1}Overview}{35}
-\contentsline {section}{\numberline {3.2}Challenges}{36}
-\contentsline {section}{\numberline {3.3}Xen Boot Procedure}{37}
-\contentsline {section}{\numberline {3.4}Design modifications in Xen boot procedure}{38}
-\contentsline {section}{\numberline {3.5}Guest VM boot procedure}{39}
-\contentsline {section}{\numberline {3.6}Design modification}{42}
-\contentsline {chapter}{\numberline {4}\uppercase {Experimental Setup and Results}}{44}
-\contentsline {chapter}{\numberline {5}\uppercase {Experimental Setup and Results}}{45}
-\contentsline {chapter}{\numberline {6}\uppercase {Conclusion and Future Work}}{46}
+\contentsline {section}{\numberline {3.1}Overview}{34}
+\contentsline {section}{\numberline {3.2}Challenges}{35}
+\contentsline {section}{\numberline {3.3}Xen Boot Procedure}{36}
+\contentsline {section}{\numberline {3.4}Design modifications in Xen boot procedure}{37}
+\contentsline {section}{\numberline {3.5}Guest VM boot procedure}{38}
+\contentsline {section}{\numberline {3.6}Design modification}{41}
+\contentsline {chapter}{\numberline {4}\uppercase {Experimental Setup and Results}}{43}
+\contentsline {chapter}{\numberline {5}\uppercase {Conclusion and Future Work}}{44}

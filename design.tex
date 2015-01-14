@@ -55,8 +55,8 @@ The control interface of Xen contains a combination of userspace, and kernel spa
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{figures/Xen_model.png}
-\caption{Xen Architecture}
+\includegraphics[scale=0.6]{figures/XEN_API.png}
+\caption{Xen API}
 \label{fig:xen_api}
 \end{figure}
 
@@ -89,8 +89,8 @@ This subsection focusses on the memory management details for x86\_64 machines. 
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{figures/Xen_model.png}
-\caption{Xen Architecture}
+\includegraphics[scale=0.6]{figures/x86_64_VA_space.png}
+\caption{x86\_64 Virtual Address Space}
 \label{fig:x86_memspace}
 \end{figure}
 
@@ -105,8 +105,8 @@ For Linux on x86\_64 machines, the lower region goes to the application and the 
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{figures/Xen_model.png}
-\caption{Xen Architecture}
+\includegraphics[scale=0.6]{figures/VA_layout_hypervisor.png}
+\caption{Xen Virtual Address Layout Transformation}
 \label{fig:xen_layout}
 \end{figure}
 
@@ -118,7 +118,7 @@ A similar framework is setup in-between Xen hypervisor and the individual VMs (s
 \begin{figure}
 \centering
 \includegraphics[scale=0.6]{figures/Xen_model.png}
-\caption{Xen Architecture}
+\caption{Virtual Memory Regions}
 \label{tab:xen_address}
 \end{figure}
 
@@ -174,8 +174,8 @@ A basic outline of the implementation is presented below, with Fig. ~\ref{fig:xe
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{figures/Xen_model.png}
-\caption{Xen Architecture}
+\includegraphics[scale=0.6]{figures/Xen_mod_model.png}
+\caption{Modified Xen Architecture}
 \label{fig:xen_mod}
 \end{figure}
 
@@ -265,5 +265,4 @@ The overall objective of this section is to create an interface for configuratio
 
 The above procedure completes one of the most critical portions of domain creation. Allocations of both volatile and non-volatile memory are complete and Xen is left with the task of firmware emulation. The toolchain creates virtual E820 table mappings, with an added region to indicate NVRAM with code 90. This completes the boot procedure and the virtual machine is equipped with non-volatile memory. When the VM is turned off, the hypervisor reclaims the NVRAM pages and adds them to the non-volatile memory pool.
 
-\chapter{\uppercase{Experimental Setup and Results}}
 
