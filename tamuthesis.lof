@@ -13,14 +13,14 @@
 \contentsline {figure}{\numberline {1.11}{\ignorespaces Intel Hub Architecture\relax }}{18}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Xen Architecture\relax }}{25}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Xen Architecture\relax }}{24}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Xen Architecture\relax }}{26}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Xen API\relax }}{28}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces x86\_64 Virtual Address Space\relax }}{31}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Xen Virtual Address Layout Transformation\relax }}{32}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Virtual Memory Regions\relax }}{32}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Virtual Memory Regions\relax }}{33}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Modified Xen Architecture\relax }}{36}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Modified Xen Architecture\relax }}{37}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.12)  13 JAN 2015 18:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.12)  14 JAN 2015 02:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -606,7 +606,7 @@ Package pdftex.def Info: figures/Xen_model.png used on input line 12.
 
 
 
-] [25 <./figures/Xen_model.png>]
+ <./figures/Xen_model.png>] [25]
 File: figures/Xen_model.png Graphic file (type png)
 
 <use figures/Xen_model.png>
@@ -630,8 +630,8 @@ File: figures/x86_64_VA_space.png Graphic file (type png)
 <use figures/x86_64_VA_space.png>
 Package pdftex.def Info: figures/x86_64_VA_space.png used on input line 92.
 (pdftex.def)             Requested size: 203.80296pt x 271.15912pt.
-
-<figures/VA_layout_hypervisor.png, id=148, 828.2142pt x 497.6994pt>
+ [30]
+<figures/VA_layout_hypervisor.png, id=151, 828.2142pt x 497.6994pt>
 File: figures/VA_layout_hypervisor.png Graphic file (type png)
 
 <use figures/VA_layout_hypervisor.png>
@@ -643,40 +643,39 @@ Overfull \hbox (66.92496pt too wide) in paragraph at lines 108--109
  [][] 
  []
 
-[30]
+[31 <./figures/x86_64_VA_space.png>]
 File: figures/Xen_model.png Graphic file (type png)
  <use figures/Xen_model.png>
 Package pdftex.def Info: figures/Xen_model.png used on input line 120.
 (pdftex.def)             Requested size: 414.83301pt x 236.46925pt.
- [31 <./figures/x86_64_VA_space.png>] [32 <./figures/VA_layout_hypervisor.png>]
- [33]
+ [32 <./figures/VA_layout_hypervisor.png>] [33] [34]
 Chapter 3.
-[34
+[35
 
-] <figures/Xen_mod_model.png, id=167, 691.8648pt x 394.1124pt>
+] <figures/Xen_mod_model.png, id=170, 691.8648pt x 394.1124pt>
 File: figures/Xen_mod_model.png Graphic file (type png)
 
 <use figures/Xen_mod_model.png>
 Package pdftex.def Info: figures/Xen_mod_model.png used on input line 177.
 (pdftex.def)             Requested size: 415.12209pt x 236.46925pt.
- [35] [36 <./figures/Xen_mod_model.png>]
-[37] [38]
+ [36] [37 <./figures/Xen_mod_model.png>]
+[38] [39]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ì in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
- [39] [40]
+ [40] [41]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ì in font cmr12!
- [41]) [42]
+ [42]) [43]
 \openout2 = `experiment.aux'.
 
  (./experiment.tex
 Chapter 4.
-) [43
+) [44
 
 
 
@@ -685,7 +684,7 @@ Chapter 4.
 
  (./results.tex
 Chapter 5.
-[44
+[45
 
 
 
@@ -702,18 +701,14 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [45]) [46] [47]
+ [46]) [47] [48]
 \openout2 = `bibliography.aux'.
 
 
 No file bibliography.tex.
 (./tamuthesis.aux (./titlepage.aux) (./abstract.aux) (./dedication.aux)
 (./acknowledgements.aux) (./nomenclature.aux) (./lists.aux) (./introduction.aux
-) (./design.aux) (./experiment.aux) (./results.aux) (./bibliography.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) (./design.aux) (./experiment.aux) (./results.aux) (./bibliography.aux)) ) 
 Here is how much of TeX's memory you used:
  5444 strings out of 493304
  80066 string characters out of 6139870
@@ -721,16 +716,17 @@ Here is how much of TeX's memory you used:
  8730 multiletter control sequences out of 15000+600000
  9658 words of font info for 34 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,7n,39p,1297b,278s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on tamuthesis.pdf (53 pages, 727227 bytes).
+ 38i,7n,39p,1297b,274s stack positions out of 5000i,500n,10000p,200000b,80000s
+</us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on tamuthesis.pdf (54 pages, 727567 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
- 135 compressed objects within 2 object streams
+ 234 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

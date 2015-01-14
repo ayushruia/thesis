@@ -7,7 +7,7 @@ Xen is an open-source hypervisor, which started as a project at University of Ca
 Xen hypervisor follows a minimalist design policy with emphasis on security and efficiency. This is extremely important as the hypervisor hosts multiple Virtual Machines and any bugs could compromise the entire system. Virtual machines are hosted on custom environments called domains. Xen exposes very basic functionalities to these domains having similar UNIX counterparts as shown in Table ~\ref{tab:unixcomp}. Guest OSes should contain relevant modifications to use these features. 
 
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{figures/Xen_model.png}
 \caption{Xen Architecture}
@@ -26,7 +26,7 @@ These two separate methods are unified in newer Xen versions via calling an addr
  
 In a Xen based system (Fig ~\ref{fig:xen_model}), memory and CPU resources are managed directly by the hypervisor, but I/O devices are generally controlled using a privileged domain (generally dom0 or Domain 0).Domain0. This domain runs in a higher privilege level where it is given significant access to most hardware resources. In addition to handling I/O operations, it also hosts the Xen User Interface used for administrative tasks. Thus, its security is of prime importance. Some of its responsibilities, such as hosting a device driver, can be delegated to domU guests (Guest domain) running at a higher privilege level. In certain cases of buggy device drivers, it is very useful, as during any device driver related fault, only the specific domU needs to be restarted instead of the entire system. However, in the absence of IOMMU, DMA requests from this domain can potentially affect memory regions allocated to other VMs. 
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{figures/Xen_model.png}
 \caption{Xen Architecture}
@@ -53,7 +53,7 @@ Time keeping is another important aspect of an Operating System, especially for 
 The control interface of Xen contains a combination of userspace, and kernel space code, through which hypercalls are issued. To host the interface, dom0 must comprise of a compliant kernel (Linux, NetBSD, Solaris, etc.) containing requisite modifications. The stack including and above Xend daemon, depicted in the figure below run as userspace space applications, while the rest run at a higher privilege level. 
 
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{figures/XEN_API.png}
 \caption{Xen API}
@@ -87,7 +87,7 @@ As a part of design philosophy, Xen does not swap pages out of memory itself. In
 
 This subsection focusses on the memory management details for x86\_64 machines. While extending the x86 ISA to 64 bits, AMD cleaned up memory segmentation controls, leaving a continuous flat address space with page level controls. In x86\_64, virtual memory is 64 bits wide, currently allowing only 48 bit sign extended addresses.  A typical system looks similar to Fig ~\ref{fig:x86_memspace}, having 128TB + 128TB accessible regions. 
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{figures/x86_64_VA_space.png}
 \caption{x86\_64 Virtual Address Space}
@@ -103,7 +103,7 @@ Typically for most Operating Systems, a virtual address space is generally divid
 For Linux on x86\_64 machines, the lower region goes to the application and the upper region is occupied by the kernel. Mapping the kernel into the individual application address spaces avoids the overhead of a context switch during a system call. Moreover, many system calls pass arguments via a pointer to a userspace memory region, which is also accessible directly by the kernel, since the kernel is a part 
 
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{figures/VA_layout_hypervisor.png}
 \caption{Xen Virtual Address Layout Transformation}
@@ -115,7 +115,7 @@ A similar framework is setup in-between Xen hypervisor and the individual VMs (s
 
 
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{figures/Xen_model.png}
 \caption{Virtual Memory Regions}
@@ -172,7 +172,7 @@ A basic outline of the implementation is presented below, with Fig. ~\ref{fig:xe
 
 5. Map the virtual NVRAM space in domUs to the physical Non-volatile memory present on the machine. 
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{figures/Xen_mod_model.png}
 \caption{Modified Xen Architecture}
