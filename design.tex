@@ -206,14 +206,14 @@ Booting can also designate either the host machine startup, or just starting a v
 2. Provide guest domains access to the NVRAM region, in a secure and protected manner. 
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.9]{figures/domain_creation1.png}
 \caption{Domain Creation Flowchart : System Boot}
 \label{fig:xen_flowchart}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.9]{figures/domain_creation2.png}
 \caption{Domain Creation Flowchart : DomU Boot}
@@ -235,7 +235,7 @@ A basic outline of the implementation is presented below, with Fig~\ref{fig:xen_
 
 5. Map the virtual NVRAM space in domUs to the physical Non-volatile memory present on the machine. 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{figures/Xen_mod_model.png}
 \caption{Modified Xen Architecture}
@@ -316,7 +316,7 @@ Each machine page is identified by a data structure called page\_info presented 
 
 \end{lstlisting}
  
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{figures/page_info.png}
 \caption{Struct page\_info array to Machine Page mapping}
@@ -326,7 +326,7 @@ Each machine page is identified by a data structure called page\_info presented 
 On system boot up, all the machine pages are free, without any domain affiliations. The Memory Management Unit builds a memory pool data structure \_heap[MEMZONE][ORDER] to manage and assimilate all the free pages. This \_heap data structure (Fig ~\ref{fig:heap_struct}) represents the free memory pool in Xen, arranging all the pages by MEMZONE and ORDER. Here MEMZONE divides the entire machine address space in terms of the position of the first non-zero bit. It is necessary for special DMA memory requests for devices with fewer address bits. In each ZONE the pages are sorted by the order of the contiguous available pages up to a maximum of 1GB. 
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.88]{figures/heap_data_structure.png}
 \caption{Memory Pool -- \_heap data structure}

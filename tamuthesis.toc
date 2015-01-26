@@ -10,27 +10,27 @@
 \contentsline {section}{\numberline {1.2}Overview}{2}
 \contentsline {section}{\numberline {1.3}Virtualization}{2}
 \contentsline {subsection}{\numberline {1.3.1}CPU Virtualization}{6}
-\contentsline {subsection}{\numberline {1.3.2}Memory Virtualization}{9}
-\contentsline {subsection}{\numberline {1.3.3}I/O Virtualization}{12}
-\contentsline {section}{\numberline {1.4}Non-Volatile Memory}{13}
-\contentsline {subsection}{\numberline {1.4.1}Storage Class Memory}{15}
-\contentsline {subsection}{\numberline {1.4.2}NVDIMM}{15}
-\contentsline {section}{\numberline {1.5}E820 Memory Map}{17}
-\contentsline {section}{\numberline {1.6}Intel VT extensions}{21}
-\contentsline {chapter}{\numberline {2}\uppercase {Xen Hypervisor}}{23}
+\contentsline {subsection}{\numberline {1.3.2}Memory Virtualization}{10}
+\contentsline {subsection}{\numberline {1.3.3}I/O Virtualization}{13}
+\contentsline {section}{\numberline {1.4}Non-Volatile Memory}{14}
+\contentsline {subsection}{\numberline {1.4.1}Storage Class Memory}{16}
+\contentsline {subsection}{\numberline {1.4.2}NVDIMM}{17}
+\contentsline {section}{\numberline {1.5}E820 Memory Map}{18}
+\contentsline {section}{\numberline {1.6}Intel VT extensions}{22}
+\contentsline {chapter}{\numberline {2}\uppercase {Xen Hypervisor}}{25}
 \vskip +10pt
-\contentsline {section}{\numberline {2.1}Xen Architecture}{23}
-\contentsline {section}{\numberline {2.2}Xen Control Interface}{27}
-\contentsline {section}{\numberline {2.3}Xen Memory Model}{28}
-\contentsline {subsection}{\numberline {2.3.1}x86\_64 Memory management}{29}
-\contentsline {subsection}{\numberline {2.3.2}Hypercalls}{33}
-\contentsline {chapter}{\numberline {3}\uppercase {Design and Implementation}}{35}
+\contentsline {section}{\numberline {2.1}Xen Architecture}{25}
+\contentsline {section}{\numberline {2.2}Xen Control Interface}{29}
+\contentsline {section}{\numberline {2.3}Xen Memory Model}{30}
+\contentsline {subsection}{\numberline {2.3.1}x86\_64 Memory management}{31}
+\contentsline {subsection}{\numberline {2.3.2}Hypercalls}{35}
+\contentsline {chapter}{\numberline {3}\uppercase {Design and Implementation}}{37}
 \vskip +10pt
-\contentsline {section}{\numberline {3.1}Overview}{35}
-\contentsline {section}{\numberline {3.2}Challenges}{37}
-\contentsline {section}{\numberline {3.3}Xen Boot Procedure}{38}
-\contentsline {subsection}{\numberline {3.3.1}Design modifications}{41}
-\contentsline {section}{\numberline {3.4}Guest VM boot procedure}{43}
-\contentsline {subsection}{\numberline {3.4.1}Design modification}{45}
-\contentsline {chapter}{\numberline {4}\uppercase {Experimental Setup and Results}}{51}
-\contentsline {chapter}{\numberline {5}\uppercase {Conclusion and Future Work}}{57}
+\contentsline {section}{\numberline {3.1}Overview}{37}
+\contentsline {section}{\numberline {3.2}Challenges}{41}
+\contentsline {section}{\numberline {3.3}Xen Boot Procedure}{41}
+\contentsline {subsection}{\numberline {3.3.1}Design modifications}{46}
+\contentsline {section}{\numberline {3.4}Guest VM boot procedure}{47}
+\contentsline {subsection}{\numberline {3.4.1}Design modification}{50}
+\contentsline {chapter}{\numberline {4}\uppercase {Experimental Setup and Results}}{52}
+\contentsline {chapter}{\numberline {5}\uppercase {Conclusion and Future Work}}{58}
