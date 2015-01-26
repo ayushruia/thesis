@@ -19,15 +19,15 @@
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Xen Virtual Address Layout Transformation\relax }}{31}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Domain Creation Flowchart : System Boot\relax }}{37}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Domain Creation Flowchart : DomU Boot\relax }}{48}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Modified Xen Architecture\relax }}{49}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Struct page\_info array to Machine Page mapping\relax }}{50}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Memory Pool -- \_heap data structure\relax }}{51}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Domain Creation Flowchart : System Boot\relax }}{36}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Domain Creation Flowchart : DomU Boot\relax }}{47}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Modified Xen Architecture\relax }}{48}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Struct page\_info array to Machine Page mapping\relax }}{49}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Memory Pool -- \_heap data structure\relax }}{50}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparison of Read/Write performance of Bare Linux vs Single VM and vs Two VMs\relax }}{54}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Machine E820 memory map\relax }}{55}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces DomU boot up kernel messages\relax }}{56}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces DomU page allocation\relax }}{57}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparison of Read/Write performance of Bare Linux vs Single VM and vs Two VMs\relax }}{53}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Machine E820 memory map\relax }}{54}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces DomU boot up kernel messages\relax }}{55}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces DomU page allocation\relax }}{56}
 \addvspace {10\p@ }

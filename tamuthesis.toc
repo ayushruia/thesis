@@ -2,8 +2,8 @@
 \renewcommand {\cftchapleader } {\cftdotfill {4.5}}
 \contentsline {chapter}{ABSTRACT}{ii}
 \contentsline {chapter}{TABLE OF CONTENTS}{iii}
-\contentsline {chapter}{LIST OF FIGURES}{iv}
-\contentsline {chapter}{LIST OF TABLES}{v}
+\contentsline {chapter}{LIST OF FIGURES}{v}
+\contentsline {chapter}{LIST OF TABLES}{vii}
 \contentsline {chapter}{\numberline {1}\uppercase {Introduction}}{1}
 \vskip +10pt
 \contentsline {section}{\numberline {1.1}Motivation}{1}
@@ -23,14 +23,14 @@
 \contentsline {section}{\numberline {2.2}Xen Control Interface}{27}
 \contentsline {section}{\numberline {2.3}Xen Memory Model}{28}
 \contentsline {subsection}{\numberline {2.3.1}x86\_64 Memory management}{29}
-\contentsline {subsection}{\numberline {2.3.2}Hypercalls}{34}
-\contentsline {chapter}{\numberline {3}\uppercase {Design and Implementation}}{36}
+\contentsline {subsection}{\numberline {2.3.2}Hypercalls}{33}
+\contentsline {chapter}{\numberline {3}\uppercase {Design and Implementation}}{35}
 \vskip +10pt
-\contentsline {section}{\numberline {3.1}Overview}{36}
-\contentsline {section}{\numberline {3.2}Challenges}{38}
-\contentsline {section}{\numberline {3.3}Xen Boot Procedure}{39}
-\contentsline {subsection}{\numberline {3.3.1}Design modifications}{42}
-\contentsline {section}{\numberline {3.4}Guest VM boot procedure}{44}
-\contentsline {subsection}{\numberline {3.4.1}Design modification}{46}
-\contentsline {chapter}{\numberline {4}\uppercase {Experimental Setup and Results}}{52}
-\contentsline {chapter}{\numberline {5}\uppercase {Conclusion and Future Work}}{58}
+\contentsline {section}{\numberline {3.1}Overview}{35}
+\contentsline {section}{\numberline {3.2}Challenges}{37}
+\contentsline {section}{\numberline {3.3}Xen Boot Procedure}{38}
+\contentsline {subsection}{\numberline {3.3.1}Design modifications}{41}
+\contentsline {section}{\numberline {3.4}Guest VM boot procedure}{43}
+\contentsline {subsection}{\numberline {3.4.1}Design modification}{45}
+\contentsline {chapter}{\numberline {4}\uppercase {Experimental Setup and Results}}{51}
+\contentsline {chapter}{\numberline {5}\uppercase {Conclusion and Future Work}}{57}
