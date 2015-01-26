@@ -1,8 +1,13 @@
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {table}{\numberline {1.1}{\ignorespaces Comparison between HDD, SSD and DRAM (approx. values)\relax }}{13}
+\contentsline {table}{\numberline {1.1}{\ignorespaces Comparison between HDD, SSD and DRAM (approx. values)\relax }}{14}
 \contentsline {table}{\numberline {1.2}{\ignorespaces Sample E820 Table\relax }}{20}
 \addvspace {10\p@ }
+\vskip -10pt
+\contentsline {table}{\numberline {2.1}{\ignorespaces Xen Architecture\relax }}{23}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Virtual Memory Regions}}{32}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\vskip -10pt
+\contentsline {table}{\numberline {4.1}{\ignorespaces Setup Machine Configuration\relax }}{52}
 \addvspace {10\p@ }
