@@ -85,7 +85,7 @@
   address={Burlington, Massachusetts, USA} 
 }
 
-@inproceedings{pcm,
+@inproceedings{cit:pcm,
  author = {Qureshi, Moinuddin K. and Srinivasan, Vijayalakshmi and Rivers, Jude A.},
  title = {Scalable High Performance Main Memory System Using Phase-change Memory Technology},
  booktitle = {Proceedings of the 36th Annual International Symposium on Computer Architecture},
@@ -103,21 +103,21 @@
  keywords = {dram caching, phase change memory, wear leveling},
 }
 
-@book{chisnall_book,
+@book{cit:chisnall_book,
   title={The definitive guide to the xen hypervisor},
   author={Chisnall, David},
   year={2008},
   publisher={Pearson Education}
 }
 
-@book{smith_nair,
+@book{cit:smith_nair,
   title={Virtual machines: versatile platforms for systems and processes},
   author={Smith, Jim and Nair, Ravi},
   year={2005},
   publisher={Elsevier}
 }
 
-@article{popek,
+@article{cit:popek,
   title={Formal requirements for virtualizable third generation architectures},
   author={Popek, Gerald J and Goldberg, Robert P},
   journal={Communications of the ACM},
@@ -128,7 +128,7 @@
   publisher={ACM}
 }
 
-@inproceedings{nvm_benefits,
+@inproceedings{cit:nvm_benefits,
  author = {Baker, Mary and Asami, Satoshi and Deprit, Etienne and Ouseterhout, John and Seltzer, Margo},
  title = {Non-volatile Memory for Fast, Reliable File Systems},
  booktitle = {Proceedings of the Fifth International Conference on Architectural Support for Programming Languages and Operating Systems},
@@ -146,16 +146,24 @@
 } 
 
 
-@manual{intel_manual,
-	author        = {{Intel Corporation}},
+@manual{cit:intel_manual,
+	organization  = {{Intel Corporation}},
 	title         = {{Intel\textsuperscript{\textregistered} 64 and IA-32 Architectures Software Developer's Manual}},
-	year          = {2009},
-	month         = {December},
-	number        = {253669-033US},
+	year          = {2015},
+	month         = {January},
+	number        = {325462-053US},
 }
 
+@manual{cit:intelvtd,
+	organization  = {{Intel Corporation}},
+	title         = {{Intel\textsuperscript{\textregistered} Virtualization Technology for Directed I/O}},
+	year          = {2014},
+	month         = {October},
+	number        = {D51397-007},
+    edition       = {Rev 2.3},
+}
 
-@inproceedings{CPU_overhead_IO,
+@inproceedings{cit:CPU_overhead_IO,
   title={Measuring CPU Overhead for I/O Processing in the Xen Virtual Machine Monitor.},
   author={Cherkasova, Ludmila and Gardner, Rob},
   booktitle={USENIX Annual Technical Conference, General Track},
@@ -163,7 +171,7 @@
   year={2005}
 }
 
-@inproceedings{nvm_benefits,
+@inproceedings{cit:nvm_benefits,
   title={Operating system implications of fast, cheap, non-volatile memory},
   author={Bailey, Katelin and Ceze, Luis and Gribble, Steven D and Levy, Henry M},
   booktitle={Proceedings of the 13th USENIX conference on Hot topics in operating systems},
@@ -172,7 +180,7 @@
   organization={USENIX Association}
 }
 
-@inproceedings{iommu_virt,
+@inproceedings{cit:iommu_virt,
   title={Utilizing IOMMUs for virtualization in Linux and Xen},
   author={Ben-Yehuda, Muli and Mason, Jon and Xenidis, Jimi and Krieger, Orran and Van Doorn, Leendert and Nakajima, Jun and Mallick, Asit and Wahlig, Elsie},
   booktitle={OLS’06: The 2006 Ottawa Linux Symposium},
@@ -181,13 +189,125 @@
   organization={Citeseer}
 }
 
-@inproceedings{iommu_penalty,
+@inproceedings{cit:iommu_penalty,
   title={The price of safety: Evaluating IOMMU performance},
   author={Ben-Yehuda, Muli and Xenidis, Jimi and Ostrowski, Michal and Rister, Karl and Bruemmer, Alexis and Van Doorn, Leendert},
   booktitle={Ottawa Linux Symp.(OLS)},
   pages={9--20},
   year={2007}
 }
+
+
+@article{cit:soft_hard_virt,
+ author = {Adams, Keith and Agesen, Ole},
+ title = {A Comparison of Software and Hardware Techniques for x86 Virtualization},
+ journal = {SIGARCH Comput. Archit. News},
+ issue_date = {December 2006},
+ volume = {34},
+ number = {5},
+ month = oct,
+ year = {2006},
+ issn = {0163-5964},
+ pages = {2--13},
+ numpages = {12},
+ url = {http://doi.acm.org/10.1145/1168919.1168860},
+ doi = {10.1145/1168919.1168860},
+ acmid = {1168860},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {MMU, SVM, TLB, VT, dynamic binary translation, nested paging, virtual machine monitor, virtualization, x86},
+} 
+
+
+@inproceedings{cit:nvram_fs,
+ author = {Doh, In Hwan and Choi, Jongmoo and Lee, Donghee and Noh, Sam H.},
+ title = {Exploiting Non-volatile RAM to Enhance Flash File System Performance},
+ booktitle = {Proceedings of the 7th ACM \&Amp; IEEE International Conference on Embedded Software},
+ series = {EMSOFT '07},
+ year = {2007},
+ isbn = {978-1-59593-825-1},
+ location = {Salzburg, Austria},
+ pages = {164--173},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/1289927.1289955},
+ doi = {10.1145/1289927.1289955},
+ acmid = {1289955},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {experimental evaluation, file system, flash memory, metadata, non-volatile RAM},
+} 
+
+@inproceedings{cit:virt_back,
+  title={Virtualization: A survey on concepts, taxonomy and associated security issues},
+  author={Sahoo, Jyotiprakash and Mohapatra, Subasish and Lath, Radha},
+  booktitle={Computer and Network Technology (ICCNT), 2010 Second International Conference on},
+  pages={222--226},
+  year={2010},
+  organization={IEEE}
+}
+
+
+@article{cit:virt_benefits,
+  title={Cloud computing},
+  author={Boss, Greg and Malladi, Padma and Quan, Dennis and Legregni, Linda and Hall, Harold},
+  journal={IBM white paper, Version},
+  volume={1},
+  year={2007}
+}
+
+@inproceedings{cit:sriov,
+  title={SR-IOV Networking in Xen: Architecture, Design and Implementation.},
+  author={Dong, Yaozu and Yu, Zhao and Rose, Greg},
+  booktitle={Workshop on I/O Virtualization},
+  year={2008}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
