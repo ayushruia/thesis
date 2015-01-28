@@ -1,9 +1,12 @@
 
 \renewcommand {\cftchapleader } {\cftdotfill {4.5}}
 \contentsline {chapter}{ABSTRACT}{ii}
-\contentsline {chapter}{TABLE OF CONTENTS}{iii}
-\contentsline {chapter}{LIST OF FIGURES}{v}
-\contentsline {chapter}{LIST OF TABLES}{vii}
+\contentsline {chapter}{DEDICATION}{iii}
+\contentsline {chapter}{ACKNOWLEDGEMENTS}{iv}
+\contentsline {chapter}{NOMENCLATURE}{vi}
+\contentsline {chapter}{TABLE OF CONTENTS}{vii}
+\contentsline {chapter}{LIST OF FIGURES}{ix}
+\contentsline {chapter}{LIST OF TABLES}{xi}
 \contentsline {chapter}{\numberline {1}\uppercase {Introduction}}{1}
 \vskip +10pt
 \contentsline {section}{\numberline {1.1}Motivation}{1}
