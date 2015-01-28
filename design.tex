@@ -39,7 +39,7 @@ In a Xen based system (Fig~\ref{fig:xen_model}), memory and CPU resources are ma
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{figures/Xen_model.png}
-\caption{Xen Architecture [\ref{cit:chisnall_book}]}
+\caption{Xen Architecture \cite{cit:chisnall_book}}
 \label{fig:xen_model}
 \end{figure}
 Memory sharing in Xen is enabled via Grant tables. Memory is shared or transferred among domains at page granularity. This feature is quite useful in many situations such as networking among guests and implementing split device driver model.
@@ -64,7 +64,7 @@ The control interface of Xen contains a combination of user space, and kernel sp
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.7]{figures/XEN_API.png}
-\caption{Xen API [\ref{cit:chisnall_book}]}
+\caption{Xen API \cite{cit:chisnall_book}}
 \label{fig:xen_api}
 \end{figure}
 Xen commands issued through any tool, are converted to XML-RPC messages to communicate with the Xend daemon. Xend performs certain managerial tasks and either performs the relevant task itself, or forwards the command to the kernel to issue hypercalls. In this chain of flow, the interface of Xend daemon is standardized through the definition of Xen API. This allows development and proliferation of user space management tools independent of changes lower in the stack. The complete Xen Control Interface structure is presented in Fig~\ref{fig:xen_api}. Xen commands can be issued through a variety of user space tools such as xl, xm, libvirt, etc. Some tools (e.g. xm) written in python, have an additional overhead of a runtime python environment. In contrast, xl is relatively lightweight using libxen library, written in C, to generate XML-RPC messages.

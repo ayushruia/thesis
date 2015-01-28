@@ -37,3 +37,4 @@
 \contentsline {subsection}{\numberline {3.4.1}Design modification}{50}
 \contentsline {chapter}{\numberline {4}\uppercase {Experimental Setup and Results}}{52}
 \contentsline {chapter}{\numberline {5}\uppercase {Conclusion and Future Work}}{58}
+\contentsline {chapter}{REFERENCES}{62}
