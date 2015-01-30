@@ -3,10 +3,10 @@
 \contentsline {chapter}{ABSTRACT}{ii}
 \contentsline {chapter}{DEDICATION}{iii}
 \contentsline {chapter}{ACKNOWLEDGEMENTS}{iv}
-\contentsline {chapter}{NOMENCLATURE}{vi}
-\contentsline {chapter}{TABLE OF CONTENTS}{vii}
-\contentsline {chapter}{LIST OF FIGURES}{ix}
-\contentsline {chapter}{LIST OF TABLES}{xi}
+\contentsline {chapter}{NOMENCLATURE}{v}
+\contentsline {chapter}{TABLE OF CONTENTS}{vi}
+\contentsline {chapter}{LIST OF FIGURES}{viii}
+\contentsline {chapter}{LIST OF TABLES}{x}
 \contentsline {chapter}{\numberline {1}\uppercase {Introduction}}{1}
 \vskip +10pt
 \contentsline {section}{\numberline {1.1}Motivation}{1}

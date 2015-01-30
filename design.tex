@@ -22,7 +22,7 @@ Xen hypervisor follows a minimalist design policy with emphasis on security and 
     POSIX shared memory & Grant tables  \\
     \hline
 \end{tabular}
-\caption{Xen Architecture}
+\caption[Comparison between Xen and Unix architecture]{Comparison between Xen and Unix architecture \cite{chisnall_book}}
 \label{tab:unixcomp}
 \end{table}
 
@@ -34,12 +34,12 @@ These two separate methods are unified in newer Xen versions via calling an addr
 
 remains the same from the Guest OS kernel's perspective whether in PV mode or in HVM mode. The implementation specifics are hidden in the page mapped to the Guest VM.
 
-In a Xen based system (Fig~\ref{fig:xen_model}), memory and CPU resources are managed directly by the hypervisor, but I/O devices are generally controlled using a privileged domain (generally dom0). This domain runs in a higher privilege level where it is given significant access to most hardware resources. In addition to handling I/O operations, it also hosts the Xen User Interface used for administrative tasks. Thus, its security is of prime importance. Some of its responsibilities, such as hosting a device driver, can be delegated to domU guests (Guest domains) running at a higher privilege level. This feature is very useful in the case of a buggy device driver, as during any device driver related fault, only the specific domU needs to be restarted instead of the entire system. However, in the absence of IOMMU, DMA requests from this domain can potentially affect memory regions allocated to other VMs. 
+In a Xen based system (Fig \ref{fig:xen_model}), memory and CPU resources are managed directly by the hypervisor, but I/O devices are generally controlled using a privileged domain (generally dom0). This domain runs in a higher privilege level where it is given significant access to most hardware resources. In addition to handling I/O operations, it also hosts the Xen User Interface used for administrative tasks. Thus, its security is of prime importance. Some of its responsibilities, such as hosting a device driver, can be delegated to domU guests (Guest domains) running at a higher privilege level. This feature is very useful in the case of a buggy device driver, as during any device driver related fault, only the specific domU needs to be restarted instead of the entire system. However, in the absence of IOMMU, DMA requests from this domain can potentially affect memory regions allocated to other VMs. 
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{figures/Xen_model.png}
-\caption{Xen Architecture \cite{cit:chisnall_book}}
+\caption[Xen Architecture]{Xen Architecture \cite{chisnall_book}}
 \label{fig:xen_model}
 \end{figure}
 Memory sharing in Xen is enabled via Grant tables. Memory is shared or transferred among domains at page granularity. This feature is quite useful in many situations such as networking among guests and implementing split device driver model.
@@ -59,15 +59,15 @@ Typically, dom0 or a driver domain hosts the actual device drivers eliminating a
 Time keeping is another important aspect of an Operating System, especially for a scheduler. CPUs are shared amongst the running processes on a time sharing basis, and thus it is of utmost importance that the Operating System has accurate CPU clock information. Additionally, several user space applications also need wall clock time information, which can be calculated from system time. Usually the above is gathered using the CPU clock and network time information. However, in a virtual machine the CPU clock does not reflect the system time, because different Operating Systems now share the same CPU. An additional issue now, is the difference between wall time and system time. This is where paravirtualization is quite useful, because the OS needs to recognize the distinction between the two. Xen hypervisor holds the responsibility to provide a virtual machine with system time corresponding to the actual time the VM occupies a CPU. In HVM domains, Xen receives support from the hardware extensions, while in PV domain the above is performed entirely in software. 
 
 \section{Xen Control Interface}
-The control interface of Xen contains a combination of user space, and kernel space code, through which hypercalls are issued. To host the interface, dom0 must comprise of a compliant kernel (Linux, NetBSD, Solaris, etc.) containing requisite modifications. The process stack, including and above the Xend daemon (Fig~\ref{fig:xen_api}), run as user space applications, while the rest run at a higher privilege level. 
+The control interface of Xen contains a combination of user space, and kernel space code, through which hypercalls are issued. To host the interface, dom0 must comprise of a compliant kernel (Linux, NetBSD, Solaris, etc.) containing requisite modifications. The process stack, including and above the Xend daemon (Fig \ref{fig:xen_api}), run as user space applications, while the rest run at a higher privilege level. 
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.7]{figures/XEN_API.png}
-\caption{Xen API \cite{cit:chisnall_book}}
+\caption[Xen API]{Xen API \cite{chisnall_book}}
 \label{fig:xen_api}
 \end{figure}
-Xen commands issued through any tool, are converted to XML-RPC messages to communicate with the Xend daemon. Xend performs certain managerial tasks and either performs the relevant task itself, or forwards the command to the kernel to issue hypercalls. In this chain of flow, the interface of Xend daemon is standardized through the definition of Xen API. This allows development and proliferation of user space management tools independent of changes lower in the stack. The complete Xen Control Interface structure is presented in Fig~\ref{fig:xen_api}. Xen commands can be issued through a variety of user space tools such as xl, xm, libvirt, etc. Some tools (e.g. xm) written in python, have an additional overhead of a runtime python environment. In contrast, xl is relatively lightweight using libxen library, written in C, to generate XML-RPC messages.
+Xen commands issued through any tool, are converted to XML-RPC messages to communicate with the Xend daemon. Xend performs certain managerial tasks and either performs the relevant task itself, or forwards the command to the kernel to issue hypercalls. In this chain of flow, the interface of Xend daemon is standardized through the definition of Xen API. This allows development and proliferation of user space management tools independent of changes lower in the stack. The complete Xen Control Interface structure is presented in Fig \ref{fig:xen_api}. Xen commands can be issued through a variety of user space tools such as xl, xm, libvirt, etc. Some tools (e.g. xm) written in python, have an additional overhead of a runtime python environment. In contrast, xl is relatively lightweight using libxen library, written in C, to generate XML-RPC messages.
 
 The xend daemon runs in the user space, thus minimizing dependence on a specific kernel. On receiving messages, xend performs certain critical tasks such as access control and issues hypercalls to the hypervisor through the kernel.
 
@@ -86,7 +86,7 @@ As a part of design philosophy, Xen does not swap pages out of memory itself. In
  
 
 \subsection{x86\_64 Memory management}
- This subsection focuses on the memory management details for x86\_64 machines. While extending the x86 ISA to 64 bits, AMD cleaned up memory segmentation controls, leaving a continuous flat address space with page level controls. In x86\_64, virtual memory is 64 bits wide, currently allowing only 48 bit sign extended addresses. A typical system looks similar to Fig~\ref{fig:x86_memspace}, having 128TB + 128TB accessible regions. 
+This subsection focuses on the memory management details for x86\_64 machines. While extending the x86 ISA to 64 bits, AMD cleaned up memory segmentation controls, leaving a continuous flat address space with page level controls. In x86\_64, virtual memory is 64 bits wide, currently allowing only 48 bit sign extended addresses \cite{intel_manual}. A typical system looks similar to Fig \ref{fig:x86_memspace}, having 128TB + 128TB accessible regions. 
 
 \begin{figure}[H]
 \centering
@@ -110,13 +110,13 @@ For Linux on x86\_64 machines, the lower region goes to the application and the 
 \label{fig:xen_layout}
 \end{figure}
 
-A similar framework is setup in-between Xen hypervisor and the individual VMs (see Fig~\ref{fig:xen_layout}). The hypervisor reserves a portion of the kernel address space for itself. This is done again to avoid context switches during hypercalls from a guest VM. This address space is again subdivided into different regions. 
+A similar framework is setup in-between Xen hypervisor and the individual VMs (see Fig \ref{fig:xen_layout}). The hypervisor reserves a portion of the kernel address space for itself. This is done again to avoid context switches during hypercalls from a guest VM. This address space is again subdivided into different regions. 
 
 %\begin{table}
 %\includegraphics[scale=0.6]{figures/Xen_model.png}
 \clearpage
 \begin{longtable}{|m{2ex}|m{20ex}|m{18ex}|m{0.39\textwidth}|}
-    \caption{Virtual Memory Regions\label{tab:xen_address}}\\
+    \caption[Virtual Memory Regions]{Virtual Memory Regions \cite{xen_code} \label{tab:xen_address}}\\
     \hline
     & Start Address      & End Address        & Description \\
     \hline
@@ -199,7 +199,7 @@ In this chapter, several features of Xen are described relevant to the x86\_64 I
 \section{Overview}
 Boot procedure on x86 demands that the CPU should first transition from real mode to protected mode to access the entire address space. It should initialize the necessary page table data structure and segment registers to perform the switch, while keeping interrupts masked during the transition process. After entering the protected mode the processor has a lot more flexibility, but typically loses access to BIOS calls. For the above mentioned reasons, bootstrapping on x86 is a quite complex and tricky procedure. Typically, initialization of a MMU is one of the first tasks for any kernel, and it involves a fair amount of bootstrapping code. It makes this undertaking all the more challenging and interesting.
 
-Booting can also designate either the host machine startup, or just starting a virtual machine. While the former is associated with the hypervisor taking stock of the hardware resources, the latter involves sharing the same with a VM in a secure manner. The major steps performed in a Xen based system from power on to starting a new domain is summarized in the flowchart presented in Fig ~\ref{fig:xen_flowchart} and Fig ~\ref{fig:dom_flowchart}. As evident from this figure this project can be broken down into two fundamental subdivisions.
+Booting can also designate either the host machine startup, or just starting a virtual machine. While the former is associated with the hypervisor taking stock of the hardware resources, the latter involves sharing the same with a VM in a secure manner. The major steps performed in a Xen based system from power on to starting a new domain is summarized in the flowchart presented in Fig \ref{fig:xen_flowchart} and Fig \ref{fig:dom_flowchart}. As evident from this figure this project can be broken down into two fundamental subdivisions.
 
 1. Create an independent Memory Management Unit for the available Non-Volatile RAM.
 
@@ -223,7 +223,7 @@ The first task requires modifications in the Xen kernel, with parts that deal wi
 
 On the other hand, the second job deals more with user level code, specific to a toolchain. A notable part of domain creation focuses on emulation of firmware, performed mostly by various management tools. Only a small portion deals with issuing hypercalls for resource allocation. Therefore, in this section most of the implementation details reside in the Xen control interface with minor modifications to the hypercall structure. Due to standardization of Xen API, a large number of tools have sprung up for VM management. This implementation picks up the xl toolchain, which currently is the default tool supported by Xen community.
 
-A basic outline of the implementation is presented below, with Fig~\ref{fig:xen_mod}, highlighting the modifications in red.
+A basic outline of the implementation is presented below, with Fig \ref{fig:xen_mod}, highlighting the modifications in red.
 
 1. Recognize the presence of NVRAM from E820 memory map provided by BIOS.
 
@@ -250,7 +250,7 @@ There are several challenges faced during the design of the proposed system in X
 \section{Xen Boot Procedure}
 On system start, Xen boots up first to take stock of the hardware present. It queries the BIOS for the E820 Memory map. Identifying the available memory regions, Xen builds preliminary page tables and switches the machine to protected mode. With paging enabled, the hypervisor can access the entire address space. It follows by building the free page lists.
 
-Each machine page is identified by a data structure called page\_info presented below. This structure contains runtime administrative information about the machine pages such as, status, domain identifier, special page status, order, etc. An array of these structures are initialized for all the machine pages as indicated in Fig ~\ref{fig:page_info_mapping}. This array of struct page\_info occupies the region 15 of Xen virtual address space identified in Table \ref{tab:xen_address}. Xen modifies this data structure to indicate any changes to the machine page. With predefined virtual address space regions for both the page\_info structures and the machine pages, a pointer to this structure can be used to calculate the virtual address of the corresponding page and vice versa. 
+Each machine page is identified by a data structure called page\_info presented below \cite{xen_code}. This structure contains runtime administrative information about the machine pages such as, status, domain identifier, special page status, order, etc. An array of these structures are initialized for all the machine pages as indicated in Fig \ref{fig:page_info_mapping}. This array of struct page\_info occupies the region 15 of Xen virtual address space identified in Table \ref{tab:xen_address}. Xen modifies this data structure to indicate any changes to the machine page. With predefined virtual address space regions for both the page\_info structures and the machine pages, a pointer to this structure can be used to calculate the virtual address of the corresponding page and vice versa. 
 
 \smallskip
 \begin{lstlisting}
@@ -319,11 +319,11 @@ Each machine page is identified by a data structure called page\_info presented 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{figures/page_info.png}
-\caption{Struct page\_info array to Machine Page mapping}
+\caption[Struct page\_info array to Machine Page mapping]{Struct page\_info array to Machine Page mapping \cite{xen_code}}
 \label{fig:page_info_mapping}
 \end{figure}
 
-On system boot up, all the machine pages are free, without any domain affiliations. The Memory Management Unit builds a memory pool data structure \_heap[MEMZONE][ORDER] to manage and assimilate all the free pages. This \_heap data structure (Fig ~\ref{fig:heap_struct}) represents the free memory pool in Xen, arranging all the pages by MEMZONE and ORDER. Here MEMZONE divides the entire machine address space in terms of the position of the first non-zero bit. It is necessary for special DMA memory requests for devices with fewer address bits. In each ZONE the pages are sorted by the order of the contiguous available pages up to a maximum of 1GB. 
+On system boot up, all the machine pages are free, without any domain affiliations. The Memory Management Unit builds a memory pool data structure \_heap[MEMZONE][ORDER] to manage and assimilate all the free pages. This \_heap data structure (Fig \ref{fig:heap_struct}) represents the free memory pool in Xen, arranging all the pages by MEMZONE and ORDER. Here MEMZONE divides the entire machine address space in terms of the position of the first non-zero bit. It is necessary for special DMA memory requests for devices with fewer address bits. In each ZONE the pages are sorted by the order of the contiguous available pages up to a maximum of 1GB. 
 
 
 \begin{figure}[H]
