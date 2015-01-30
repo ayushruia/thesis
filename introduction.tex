@@ -219,7 +219,7 @@ The key property of main memory is byte addressable data, while that of secondar
       \hline
   \end{tabular}
   %\includegraphics[scale=0.6]{figures/nvmemorytable.png}
-  \caption{Comparison between HDD, SSD and DRAM (approx. values)}
+  \caption[Comparison between HDD, SSD and DRAM]{Comparison between HDD, SSD and DRAM (approx. values)}
   \label{tab:nvmemtable}
 \end{table}
 The volatility of RAM leads to data loss on shutdown. In the case of a planned shutdown, data residing on RAM is backed up on the disk. The system state is restored on boot up by transferring all saved data back to RAM, generating an illusion of persistence of data. However, the heart of the problem lies in the case of unplanned power failures where all data present in the main memory is permanently lost. Several different approaches can be taken to safeguard against such a situation:
