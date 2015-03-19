@@ -83,7 +83,7 @@ From an OS's point of view, all hardware can be classified into three broad cate
 For entire system virtualization, we have to virtualize all the subsystems. This can be performed either in software, or by hardware. A software approach provides higher flexibility at the cost of reduced performance when compared to a hardware solution. The following subsections delve further into each subsystem virtualization specifics.
 
 \subsection{CPU Virtualization}
-The main objective here is to give an illusion to each VM (Virtual Machine) of pseudo machines, while maintaining control of the actual hardware resources with the hypervisor. Work of similar nature is performed at the application layer by the Operating System. To facilitate such protection mechanisms, a typical ISA implements several privilege levels (protection rings), allowing a certain class of instructions to execute only in a privileged mode. The ISA generally presents two levels -- user level and supervisor level. An attempt to execute a privileged instruction in an unprivileged mode triggers an exception. It transfers control of execution to a specific supervisor level subroutine (generally registered with the OS), which takes appropriate action maintaining the security and protection of the system.
+CPU virtualization aims at providing the hypervisor direct control over the distribution of hardware resources amongst various VMs (Virtual Machines). Work of similar nature is performed at the application layer by the Operating System. To facilitate such protection mechanisms, a typical ISA implements several privilege levels (protection rings), allowing a certain class of instructions to execute only in a privileged mode. The ISA generally presents two levels -- user level and supervisor level. An attempt to execute a privileged instruction in an unprivileged mode triggers an exception. It transfers control of execution to a specific supervisor level subroutine (generally registered with the OS), which takes appropriate action maintaining the security and protection of the system.
 
 \setlength{\belowcaptionskip}{-10pt}
 
@@ -93,15 +93,15 @@ The main objective here is to give an illusion to each VM (Virtual Machine) of p
   \caption{ISA Protection Rings}
   \label{fig:protect_2}
 \end{figure}
-In the case of virtual machines, such a task becomes all the more challenging, as these protection mechanisms have to be implemented at the OS level, by the hypervisor. Pioneering work done by Popek and Goldberg \cite{popek}, defined several constraints on the Instruction Set Architecture of a machine to provide efficient virtualization where majority of the operations run naively on the CPU ISA instructions. The CPU instructions are first classified in the following manner
+In the case of virtual machines, such a task becomes all the more challenging, as these protection mechanisms have to be implemented at the OS level by the hypervisor. Pioneering work done by Popek and Goldberg \cite{popek}, defined several constraints on the Instruction Set Architecture of a machine to provide efficient virtualization where majority of the operations run naively on the CPU ISA instructions. The CPU instructions are first classified in the following manner:
 
 1. Privileged Instructions: The group of instructions that can only be run when the CPU is in supervisor mode, and will trap outside it.
 
 2. Control Sensitive Instructions: Instructions that change the hardware configuration or resources of the system.
 
-3. Behavior Sensitive Instructions: Any instruction, whose output depends upon the current state, or configuration of the machine.
+3. Behavior Sensitive Instructions: Any instruction whose output depends upon the current state, or configuration of the machine.
 
-They proposed that for any architecture to be efficiently virtualizable, all sensitive (behavior and control) instructions must be privileged instructions. Any instruction, which either tries to modify hardware configuration, or whose output depends upon it, should transfer control of execution to the hypervisor.
+They proposed that for any architecture to be efficiently virtualizable (in trap and emulate model), all sensitive (behavior and control) instructions must be privileged instructions. Any instruction, which either tries to modify hardware configuration, or whose output depends upon it, should transfer control of execution to the hypervisor.
 
 Contrary to norm, an operating system on a VM runs in de-privileged user mode. Most of the operations run at native speeds without emulation, with a penalty introduced for sensitive instructions which trap into the hypervisor.
 
@@ -118,7 +118,7 @@ According to the above definition, x86 is not a virtualizable architecture. It h
 
 1. Emulation is the most versatile solution, implemented entirely in software. Here, the dynamic instruction stream is scanned for sensitive instructions, which are then replaced by emulated operations. Emulation can also allow a code, compiled for one ISA, to run on a host machine with a different ISA; though with a severe performance penalty (since every instruction has to be emulated). Binary translation can be viewed as an optimized version of the above, where emulated code segments are cached aggressively, providing significant performance boost for re-entrant code segments.
 
-2. Paravirtualization is another solution which relies on relaxing some of the tenets of virtualization by modifying the source code of operating system to replace sensitive operations with hypercalls to the hypervisor. Unfortunately, this trades off flexibility with performance, allowing only open source operating systems, to run on Virtual Machines. Xen is one of the leading open-source hypervisors employing paravirtualization \cite{xen_virt}, now natively supported by the Linux kernel (from Linux kernel 3.0 onwards).
+2. Paravirtualization is another solution, which relies on relaxing some of the tenets of virtualization by modifying the source code of operating system to replace sensitive operations with hypercalls to the hypervisor. Unfortunately this trades off flexibility with performance, as different Operating Systems have to be modified individually and the OS source code may not be available to the hypervisor. Xen is one of the leading open-source hypervisors employing paravirtualization \cite{xen_virt}, now natively supported by the Linux kernel (from Linux kernel 3.0 onwards).
 
 3. With increasing demand for virtualization technology both Intel and AMD have extended the x86 ISA to include extra features to support a hypervisor in an additional ring at -1 level. As per the original requirements of Popek and Goldberg, the OS executing in the ring 0 is oblivious to the presence of the hypervisor, with the privileged instructions generating a trap to the hypervisor. Additional level of memory virtualization is also introduced with the addition of Extended Page Tables in hardware. Along with the above, several instructions were added to the ISA to support a system call structure for the hypervisor, named hypercalls. It also provides a hardware concept of virtual CPUs with specific instructions to store/restore the state to/from VMCS (Virtual Machine Control Structure). This enables x86 to achieve the status of a virtualizable architecture with the support of these extensions. Detailed explanation is provided in Section 1.5. 
 
@@ -132,7 +132,7 @@ According to the above definition, x86 is not a virtualizable architecture. It h
 \end{figure}
 
 \subsection{Memory Virtualization}
-Virtual Memory has been around for a long time, allowing multiple applications to share the physical memory in the system. Each application is given a virtual address space, which is mapped on to the available physical address space via page tables maintained by the Operating System. This allows an application to be designed with respect to virtual addresses, without worrying about the runtime memory space allocation. On the downside, each memory reference now requires an address translation through the page table structure. Most ISA’s provide support for a hardware page walker which performs the translation in hardware. 
+Virtual Memory has been around for a long time, allowing multiple applications to share the physical memory in the system. Each application is given a virtual address space, which is mapped on to the available physical address space via page tables maintained by the Operating System. Thus applications do not have to worry about runtime memory allocation, and can operate on a continuous address space. On the downside, each memory reference now requires an address translation through the page table structure. Many ISA’s provide support for a hardware page table walker, which performs the translation in hardware. 
 
 \setlength{\belowcaptionskip}{-10pt}
 
@@ -142,11 +142,11 @@ Virtual Memory has been around for a long time, allowing multiple applications t
   \caption{Virtual Memory}
   \label{fig:virt_mem}
 \end{figure}
-With respect to system level virtualization, the system memory is shared among several guest VMs. Thus it leads to an additional address space.
+In a virtualized environment the system memory is shared among several guest VMs. Thus it leads to an additional address space.
 
 1. Virtual address space: The address space as visible to applications.
 
-2. Guest Physical address space: Individual VM level or OS level address space.
+2. Guest Physical address space: Individual VM Level or OS Level address space.
 
 3. Real or Machine address space: The actual system memory address space.
 
@@ -159,19 +159,17 @@ With respect to system level virtualization, the system memory is shared among s
   \label{fig:hyper_mem}
 \end{figure}
 
-Translations from virtual address space to the machine address space requires two levels of paging:
+Translations from virtual address space to the machine address space require two levels of paging:
 
-1. Operating System Page tables: Translates from virtual to guest physical addresses.
+1. Operating System Page table: Translates from virtual to guest physical addresses.
 
-2. Hypervisor Page tables: Translates from guest physical to machine addresses.
+2. Hypervisor Page table: Translates from guest physical to machine addresses.
 
-Without additional hardware support, a clever software based solution is to maintain an additional shadow page table with the hypervisor, mapping virtual addresses directly to machine
-
-addresses. This approach though avoids one level of paging, causes frequent traps to the hypervisor, which are very expensive.
+Without additional hardware support, a clever software based solution is to maintain an additional shadow page table with the hypervisor, mapping virtual addresses directly to machine addresses. This approach though avoids one level of paging, causes frequent traps to the hypervisor, which are very expensive.
 
 However, recent virtualization extensions added to the x86 architecture now support nested page tables, i.e. two levels of address translations in hardware. It provides far superior performance as compared to the shadow page table approach. In the event of a page fault due to an invalid entry in the guest page tables, the hypervisor need not be involved. However, in the software based approach, the hypervisor first catches the exception and forwards the event to the guest kernel for an appropriate response. It results in two unnecessary context switches, which can be avoided with nested page table support, where the exception is directly delivered to the guest. Moreover, any update to the guest page tables in the former approach have to go through hypervisor, either via hypercalls or exceptions. As evident, the number of context switches keep multiplying for shadow page tables. On the downside, a TLB (Translation Lookaside Buffer) miss is quite expensive, as the hardware has to traverse higher number of page tables to resolve an address.
 
-Frequent context switches is another common issue faced in virtualized systems. To reduce its impact, the virtualization extensions provide tagged TLB entries, where TLB entries are associated with a vCPU (virtual CPU) using a tag. Thus every context switch does not necessitate a complete TLB flush. It can be safely assumed from the above that hardware extensions add significant boost to most virtualized environments, especially for memory management.
+Frequent context switching is another common issue faced in virtualized systems. To reduce its impact, the virtualization extensions provide tagged TLB entries, where TLB entries are associated with a vCPU (virtual CPU) using a tag. Thus every context switch does not necessitate a complete TLB flush. It can be safely assumed from the above that hardware extensions add significant boost to most virtualized environments, especially for memory management.
 
 \subsection{I/O Virtualization}
 An I/O operation is typically controlled by programming special registers on the device, and using DMA (Direct Memory Access) for data transfers. Since device speeds are extremely slow (when compared to CPU) it is best not to involve the CPU. Thus DMA requests are moderated entirely by the northbridge chipset (see Fig \ref{fig:intel_arch}). The CPU is notified of the completion of the DMA operation, using an interrupt. Device virtualization mainly focusses on the following two aspects.
