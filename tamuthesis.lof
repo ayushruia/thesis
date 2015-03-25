@@ -15,7 +15,7 @@
 \vskip -10pt
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Xen Architecture}}{27}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Xen API}}{29}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces x86\_64 Virtual Address Space\relax }}{32}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces x86\_64 Virtual Address Space\relax }}{31}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Xen Virtual Address Layout Transformation\relax }}{33}
 \addvspace {10\p@ }
 \vskip -10pt

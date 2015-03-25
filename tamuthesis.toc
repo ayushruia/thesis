@@ -11,7 +11,7 @@
 \vskip +10pt
 \contentsline {section}{\numberline {1.1}Motivation}{1}
 \contentsline {section}{\numberline {1.2}Overview}{2}
-\contentsline {section}{\numberline {1.3}Virtualization}{3}
+\contentsline {section}{\numberline {1.3}Virtualization}{2}
 \contentsline {subsection}{\numberline {1.3.1}CPU Virtualization}{6}
 \contentsline {subsection}{\numberline {1.3.2}Memory Virtualization}{10}
 \contentsline {subsection}{\numberline {1.3.3}I/O Virtualization}{13}
