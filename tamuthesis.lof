@@ -7,8 +7,8 @@
 \contentsline {figure}{\numberline {1.5}{\ignorespaces System Virtualization Model\relax }}{8}
 \contentsline {figure}{\numberline {1.6}{\ignorespaces Hypervisor Protection Rings\relax }}{10}
 \contentsline {figure}{\numberline {1.7}{\ignorespaces Virtual Memory\relax }}{11}
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Hypervisor based Memory Layers\relax }}{11}
-\contentsline {figure}{\numberline {1.9}{\ignorespaces SCM based Motherboard Architectures}}{17}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Hypervisor Based Memory Layers\relax }}{11}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces SCM Based Motherboard Architectures}}{17}
 \contentsline {figure}{\numberline {1.10}{\ignorespaces NVDIMM Model\relax }}{18}
 \contentsline {figure}{\numberline {1.11}{\ignorespaces Intel Hub Architecture\relax }}{19}
 \addvspace {10\p@ }
@@ -22,12 +22,12 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Domain Creation Flowchart : System Boot\relax }}{38}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Domain Creation Flowchart : DomU Boot\relax }}{39}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Modified Xen Architecture\relax }}{40}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Struct page\_info array to Machine Page mapping}}{44}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Memory Pool -- \_heap data structure\relax }}{45}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Struct page\_info Array to Machine Page Mapping}}{44}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Memory Pool -- \_heap Data Structure\relax }}{45}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparison of Read/Write performance of Bare Linux vs Single VM and vs Two VMs\relax }}{54}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Machine E820 memory map\relax }}{55}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces DomU boot up kernel messages\relax }}{56}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces DomU page allocation\relax }}{57}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparison of Read/Write Performance of Bare Linux vs Single VM and vs Two VMs\relax }}{54}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Machine E820 Memory Map\relax }}{55}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces DomU Boot Up Kernel Messages\relax }}{56}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces DomU Page Allocation\relax }}{57}
 \addvspace {10\p@ }

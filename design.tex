@@ -7,6 +7,8 @@ Xen hypervisor follows a minimalist design policy with emphasis on security and 
 
 \begin{table}[H]
 \centering
+\caption[Comparison between Xen and Unix Architecture]{Comparison between Xen and Unix Architecture \cite{chisnall_book}}
+\label{tab:unixcomp}
 %\includegraphics[scale=0.6]{figures/Xen_model.png}
 \begin{tabular}{|c|c|}
     \hline
@@ -22,8 +24,6 @@ Xen hypervisor follows a minimalist design policy with emphasis on security and 
     POSIX shared memory & Grant tables  \\
     \hline
 \end{tabular}
-\caption[Comparison between Xen and Unix architecture]{Comparison between Xen and Unix architecture \cite{chisnall_book}}
-\label{tab:unixcomp}
 \end{table}
 
 Initially Xen was designed undertaking paravirtualization on x86, i.e. Guest OS kernels were modified to be compatible with Xen. However, with the addition of Intel VT-x and AMD SVM extensions to the x86 architecture, it is possible to support pure virtualization. Guests on newer machines can run in two modes -- PV (Paravirtual) guest or HVM (Hardware Virtual Machine) Guest. In HVM mode, Xen can run guests without any source code modifications. On the other hand, running a paravirtualized guest kernel in HVM takes the hybrid approach where the guest may take advantage of hardware features (such as Nested Page Tables), in addition to the performance boosts provided by paravirtualization techniques (such as hypercalls). Guests can use the CPUID instruction to probe whether it is running directly on hardware, or on top of Xen.
@@ -85,7 +85,7 @@ Memory management is one of the core components of a hypervisor. With Xen core, 
 As a part of design philosophy, Xen does not swap pages out of memory itself. Individual guest OSes’ are the best judges to identify cold pages and thus this job is left over to them. Using the balloon driver, Xen is able to mount or release memory pressure in a VM. When the hypervisor wants to reclaim pages from a VM, it inflates the balloon driver in the virtual machine. The balloon driver requests more memory from the OS, which swaps cold pages out and releases memory to the balloon driver. The latter returns those freed up memory pages to the hypervisor so that it can be allocated to an appropriate VM. During runtime, as the memory requirement reduces, Xen deflates the balloon and releases memory back to the VM. The balloon driver monitors a target memory value, set in Xenstore to dynamically balance the actual memory allocated to the guest. This target memory value (set through domain0) is usually smaller than the guest physical address space and reflects the intended actual memory allocation for that domain. 
  
 
-\subsection{x86\_64 Memory management}
+\subsection{x86\_64 Memory Management}
 This subsection focuses on the memory management details for x86\_64 machines. While extending the x86 ISA to 64 bits, AMD cleaned up memory segmentation controls, leaving a continuous flat address space with page level controls. In x86\_64, virtual memory is 64 bits wide, currently allowing only 48 bit sign extended addresses \cite{intel_manual}. A typical system looks similar to Fig \ref{fig:x86_memspace}, having 128TB + 128TB accessible regions. 
 
 \begin{figure}[H]
@@ -122,22 +122,23 @@ A similar framework is setup in-between Xen hypervisor and the individual VMs (s
     \hline
     \hline
     \endfirsthead
-    \hline
-    \multicolumn{4}{|c|}{Continuation of Table \ref{tab:xen_address}}\\
-    \hline
+    %\hline
+    \multicolumn{4}{c}{Table \ref{tab:xen_address} continued}\\
+    %\caption{Table \ref{tab:xen_address} continued}\\
+    %\hline
     \hline
     & Start Address      & End Address        & Description \\
     \hline
     \hline
     \endhead
-    \hline
-    \hline
-    \multicolumn{4}{|c|}{\textit{Continued...}}\\
-    \hline
+    %\hline
+    %\hline
+    %\multicolumn{4}{|c|}{\textit{Continued...}}\\
+    %\hline
     \endfoot
-    \hline
-    \hline
-    \multicolumn{4}{|c|}{End of Table \ref{tab:xen_address}}\\
+    %\hline
+    %\hline
+    %\multicolumn{4}{|c|}{End of Table \ref{tab:xen_address}}\\
     \hline
     \endlastfoot
     1  & 0x0000000000000000  & 0x00007fffffffffff & [128TB, PML4:0-255] Guest-defined use \\
@@ -248,7 +249,7 @@ There are several challenges faced during the design of the proposed system in X
 \section{Xen Boot Procedure}
 On system start, Xen boots up first to take stock of the hardware present. It queries the BIOS for the E820 Memory map. Identifying the available memory regions, Xen builds preliminary page tables and switches the machine to protected mode. With paging enabled, the hypervisor can access the entire address space. It follows by building free page lists.
 
-Each machine page is identified by a data structure called page\_info presented below \cite{xen_code}. This structure contains runtime administrative information about the machine pages such as status, domain identifier, special page status, order, etc. An array of these structures is initialized for all the machine pages as indicated in Fig \ref{fig:page_info_mapping}. This array of struct page\_info occupies the region 15 of Xen virtual address space identified in Table \ref{tab:xen_address}. Xen modifies this data structure to indicate any changes to the machine page. With predefined virtual address space regions for both the page\_info structures and the machine pages, a pointer to this structure can be used to calculate the virtual address of the corresponding page and vice versa. 
+Each machine page is identified by a data structure called page\_info presented below \cite{xen_code}. This structure contains runtime administrative information about the machine pages such as status, domain identifier, special page status, order, etc. 
 
 \smallskip
 \begin{lstlisting}
@@ -314,10 +315,12 @@ Each machine page is identified by a data structure called page\_info presented 
 
 \end{lstlisting}
  
+An array of these structures is initialized for all the machine pages, as shown in Fig \ref{fig:page_info_mapping}. This array of struct page\_info occupies the region 15 of Xen virtual address space identified in Table \ref{tab:xen_address}. Xen modifies this data structure to indicate any changes to the machine page. With predefined virtual address space regions for both the page\_info structures and the machine pages, a pointer to this structure can be used to calculate the virtual address of the corresponding page and vice versa. 
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{figures/page_info.png}
-\caption[Struct page\_info array to Machine Page mapping]{Struct page\_info array to Machine Page mapping \cite{xen_code}}
+\caption[Struct page\_info Array to Machine Page Mapping]{Struct Page\_info array to Machine Page Mapping \cite{xen_code}}
 \label{fig:page_info_mapping}
 \end{figure}
 
@@ -327,7 +330,7 @@ On system boot up, all the machine pages are free, without any domain affiliatio
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.88]{figures/heap_data_structure.png}
-\caption{Memory Pool -- \_heap data structure}
+\caption{Memory Pool -- \_heap Data Structure}
 \label{fig:heap_struct}
 \end{figure}
 
@@ -335,7 +338,7 @@ Each location in the 2-D array contains a list of the pages (actually their corr
 
 Once the memory pool is ready, Domain 0 is given an appropriate amount of memory and the kernel image is copied. The hypervisor follows to build a CPU pool out of the available cores. It initializes VMCS and other associated data structures and hands control over to Domain0 Linux kernel. It is the responsibility of dom0 now to initialize all I/O devices using their appropriate drivers. 
 
-\subsection{Design modifications}
+\subsection{Design Modifications}
 
  To enable sharing NVRAM across separate VMs, we have to first recognize it as a memory region. Currently the firmware (BIOS) marks that section with code 90. Due to lack of standardization, this code is subject to change and presently not recognized by Xen. Therefore, the hypervisor treats it as an unrecognized address space. Xen inhibits from either writing to or reading from these addresses.
 
@@ -345,7 +348,7 @@ Separate NVM allocator functions nvm\_alloc\_heap\_pages and nvm\_free\_heap\_pa
 
 With the above mentioned modifications in place, Xen is able to boot up, identify the available Non-volatile memory and allocate/de-allocate NVRAM pages on demand. A basic non-volatile memory management unit has been setup. It still requires an interface for domains to specify non-volatile memory requirements and request non-volatile memory through the NV MMU. The next section discusses a guest domain creation procedure, where modifications are added to utilize the above infrastructure. 
 
-\section{Guest VM boot procedure}
+\section{Guest VM Boot Procedure}
 
 Booting on bare metal x86 can be quite different from the virtual environment provided by Xen. An x86 CPU starts in 16 bit real mode, with BIOS providing basic essential functions such as hardware information, address space resolution and I/O device drivers. During the boot up procedure, the OS builds page tables and transitions the CPU to protected mode. At this point generally BIOS interrupt calls are unavailable so the OS device drivers are used for I/O. Most of the above functionalities are unavailable in a VM in Xen because the hypervisor boots up first transitioning the machine into protected mode. This poses a problem as the CPU state is totally different in a VM to what an Operating System is expecting.
 
@@ -367,7 +370,7 @@ Starting a domain begins with defining a configuration file that includes the di
 
 On the other hand, if the memory requirements are met, the tool issues a hypercall (via xend) to build necessary data structures (VMCS and internal Xen data structures) for domain management. The management tool also creates a guest physical address space and sends a hypercall for appropriate memory allocation and page-table mappings. The hypervisor, on receiving this hypercall, allocates pages via the associated functions mentioned in the previous section. It also builds up the hypervisor page tables to map the guest physical pages to actual machine pages. If all is successful then a virtual E820 memory map is created, and the new VM is booted with emulated firmware using code borrowed from Bochs and QEMU.
 
-\subsection{Design modification}
+\subsection{Design Modification}
 The overall objective of this section is to create an interface for configuration and allocation of Non-volatile memory. Current work focuses on extending this functionality only for HVM guests. Here, implementation details lie in three areas – xl management tool, Bochs emulator, and hypercall structure.
 
 First and foremost, a parameter is added to the configuration file facilitating the specification of the non-volatile memory requirement in Megabytes. This parameter is read by the tool chain, which then creates additional guest physical address space for NVRAM. Actual memory allocation is performed at this point using hypercalls to notify the hypervisor of the guest physical page numbers with emphasis on allocation of contiguous memory blocks to minimize TLB entries. The x86\_64 architecture provides page mapping in the sizes of 1GB, 2MB and 4KB. The allocator moves in descending order for memory requests to satisfy the requirement. A flag is added to the hypercall argument to differentiate between volatile and non-volatile memory requests. If the flag is set, the hypervisor pulls pages out of the NVRAM pool, else it uses the RAM pool for the purpose.

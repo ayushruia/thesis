@@ -19,22 +19,22 @@
 \contentsline {subsection}{\numberline {1.4.1}Storage Class Memory}{16}
 \contentsline {subsection}{\numberline {1.4.2}NVDIMM}{17}
 \contentsline {section}{\numberline {1.5}E820 Memory Map}{18}
-\contentsline {section}{\numberline {1.6}Intel VT extensions}{22}
+\contentsline {section}{\numberline {1.6}Intel VT Extensions}{22}
 \contentsline {chapter}{\numberline {2}\uppercase {Xen Hypervisor}}{25}
 \vskip +10pt
 \contentsline {section}{\numberline {2.1}Xen Architecture}{25}
 \contentsline {section}{\numberline {2.2}Xen Control Interface}{29}
 \contentsline {section}{\numberline {2.3}Xen Memory Model}{30}
-\contentsline {subsection}{\numberline {2.3.1}x86\_64 Memory management}{31}
+\contentsline {subsection}{\numberline {2.3.1}x86\_64 Memory Management}{31}
 \contentsline {subsection}{\numberline {2.3.2}Hypercalls}{35}
 \contentsline {chapter}{\numberline {3}\uppercase {Design and Implementation}}{37}
 \vskip +10pt
 \contentsline {section}{\numberline {3.1}Overview}{37}
 \contentsline {section}{\numberline {3.2}Challenges}{41}
 \contentsline {section}{\numberline {3.3}Xen Boot Procedure}{41}
-\contentsline {subsection}{\numberline {3.3.1}Design modifications}{46}
-\contentsline {section}{\numberline {3.4}Guest VM boot procedure}{47}
-\contentsline {subsection}{\numberline {3.4.1}Design modification}{50}
+\contentsline {subsection}{\numberline {3.3.1}Design Modifications}{46}
+\contentsline {section}{\numberline {3.4}Guest VM Boot Procedure}{47}
+\contentsline {subsection}{\numberline {3.4.1}Design Modification}{50}
 \contentsline {chapter}{\numberline {4}\uppercase {Experimental Setup and Results}}{52}
 \contentsline {chapter}{\numberline {5}\uppercase {Conclusion and Future Work}}{58}
 \contentsline {chapter}{REFERENCES}{62}
